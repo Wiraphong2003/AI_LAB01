@@ -1,7 +1,12 @@
 from flask import Flask, jsonify, make_response
 import json
 from faker import Faker
+from flask_cors import CORS, cross_origin
+
 app = Flask(__name__)
+cors = CORS(app)
+
+
 @app.route('/')
 def hello_ai():
  return '<h1>Hello This is an AI class</h2>'
@@ -19,4 +24,4 @@ for i in range(0,20):
 def gen_user():
  return make_response(jsonify(employees), 200)
 if __name__ == "__main__":
- app.run(debug=True)
+ app.run(host = '0.0.0.0')
